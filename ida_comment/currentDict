@@ -1,0 +1,42 @@
+BOUND:Check Array Index Against Bounds
+BSF:Bit Scan Forward
+BSR:Bit Scan Reverse
+BSWAP:Byte Swap
+BT:Bit 
+BTC:Bit Test and Complement
+CLC:Clear Carry Flag
+CLD:Clear Direction Flag
+CLFLUSH:Flush Cache Line
+CLI:Clear Interrupt Flag
+CLTS:Clear Task-Switched Flag in CR0
+CMC:Complement Carry Flag
+CMOV:Conditional Move
+CMPS:Compare String Operands
+CWD:Convert Word to Doubleword
+CDQ:Convert Doubleword to Quadword
+DAA:Decimal Adjust AL after Addition
+DAS:Decimal Adjust AL after Subtraction
+FLD:Load Floating Point Value
+IN:Input from Port
+INT 3:Call to Interrupt Procedure
+JCC:Jump if Condition Is Met
+JG:Signed
+JA:Unsigned
+JAE:Unsigned
+JB:Unsigned
+JBE:Unsigned
+JNAE:Unsigned not above or equal
+JNA:Unsigned not above
+JNB:Unsigned not below
+JNBE:Unsigned not below or equal
+JG:Signed
+JGE:Signed
+JL:Signed
+JLE:Signed
+JNG:Signed
+JNGE:Signed
+JNL:Signed
+JO:Signed overflow
+JNO:Signed no overflow
+JS:jump if sign(negative)
+JNS:jump if not sign(positive)
