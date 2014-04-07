@@ -11,10 +11,6 @@
 #include "elf.h"
 #include "signal.h"
 
-/*Loads program into memory then calls function
-at set offset determined by disassembler.
-Again Ki put in most of the work also
-stole some of evans code as well*/
 
 int main(int argc, char *argv[]) {
 
