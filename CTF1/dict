@@ -1,0 +1,30 @@
+ADD:Add
+AND:Logical AND
+BOUND:Check Array Index Against Bounds
+BSF:Bit Scan Forward
+BSR:Bit Scan Reverse
+BSWAP:Byte Swap
+BT:Bit Test
+BTC:Bit Test and Complement
+CBW/CWDE:Convert Byte to Word/Convert Word to Doubleword
+CLC:Clear Carry Flag
+CLD:Clear Direction Flag
+CLFLUSH:Flush Cache Line
+CLI:Clear Interrupt Flag
+CLTS:Clear Task-Switched Flag in CR0
+CMC:Complement Carry Flag
+CMOV:Conditional Move
+CMPS:Compare String Operands
+CWD:Convert Word to Doubleword
+CDQ:Convert Doubleword to Quadword
+DAA:Decimal Adjust AL after Addition
+DAS:Decimal Adjust AL after Subtraction
+DEC:Decrement by 1
+DIV:Unsigned Divide
+FLD:Load Floating Point Value
+IMUL:Signed Multiply
+IN:Input from Port
+INC:Increment by 1
+INT:Call to Interrupt Procedure
+JCC:Jump if Condition Is Met
+LEA:Load Effective Address
