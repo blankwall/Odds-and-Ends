@@ -1,12 +1,11 @@
 ADD:Add
-AND:Logical AND
+AND UP:Logical AND
 BOUND:Check Array Index Against Bounds
 BSF:Bit Scan Forward
 BSR:Bit Scan Reverse
 BSWAP:Byte Swap
 BT:Bit Test
 BTC:Bit Test and Complement
-CBW/CWDE:Convert Byte to Word/Convert Word to Doubleword
 CLC:Clear Carry Flag
 CLD:Clear Direction Flag
 CLFLUSH:Flush Cache Line
@@ -19,12 +18,48 @@ CWD:Convert Word to Doubleword
 CDQ:Convert Doubleword to Quadword
 DAA:Decimal Adjust AL after Addition
 DAS:Decimal Adjust AL after Subtraction
-DEC:Decrement by 1
-DIV:Unsigned Divide
+DEC:Decrement by 1 --src
+DIV:Unsigned Divide edx|eax /= src
+IDIV:Signed integer division edx|eax /= src
 FLD:Load Floating Point Value
-IMUL:Signed Multiply
+IMUL:Signed Multiply edx|eax *= src
 IN:Input from Port
 INC:Increment by 1
-INT:Call to Interrupt Procedure
+INT 3:Call to Interrupt Procedure
 JCC:Jump if Condition Is Met
-LEA:Load Effective Address
+JG:Signed
+LEA:Load Effective Address *reg
+JA:Unsigned
+JAE:Unsigned
+JB:Unsigned
+JBE:Unsigned
+JNAE:Unsigned not above or equal
+JNA:Unsigned not above
+JNB:Unsigned not below
+JNBE:Unsigned not below or equal
+JG:Signed
+JGE:Signed
+JL:Signed
+JLE:Signed
+JNG:Signed
+JNGE:Signed
+JNL:Signed
+JO:Signed overflow
+JNO:Signed no overflow
+JS:jup if sign(negative)
+JNS:jump if not sign(positive)
+MOVSX:Move sign extend(signed)
+MOVZX: Move zero extend(unsigned)
+MUL:Unsigned multiplication
+OR:Logical OR dest|src
+REPNE SCASB:String length esi 
+REP MOVSB:copies bytes from esi to edi 
+TEST:logical and sets zero flag 
+XOR:Logical XOR dest^src
+XCHG:exchange dest, src
+ROL:Rotate Left
+ROR:Rotate Right
+SAL:Arithmetic Shift Left
+SAR:Arithmetic Shift Right
+SHL:Shift logically left
+SHR:Shift logically right
