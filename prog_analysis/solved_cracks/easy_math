@@ -1,0 +1,21 @@
+mov     [ebp+var_10], 6
+mov     [ebp+var_C], 2
+mov     [ebp+var_8], 0
+mov     [ebp+var_4], 17712
+mov     eax, [ebp+arg_4]
+mov     eax, [eax]
+sub     esp, 12
+push    eax             ; nptr
+call    atoi
+add     esp, 16
+mov     [ebp+var_14], eax
+mov     eax, [ebp+var_10]
+mov     edx, eax
+imul    edx, [ebp+var_C]
+mov     eax, [ebp+var_14]
+imul    eax, edx
+mov     [ebp+var_8], eax
+xor     eax, eax
+mov     eax, [ebp+var_4]
+cmp     eax, [ebp+var_8]
+jnz     short loc_80484FE
