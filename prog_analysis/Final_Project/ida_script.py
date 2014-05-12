@@ -8,6 +8,7 @@ x86 = []
 ea = ScreenEA()
 seg_ea = ea
 print "STARTING AT: ", hex(ea)
+#CURRENTLY HARD CODED 
 end = 0x08048529
 print "GATHERING CONSTRAINTS: "
 for head in Heads(seg_ea, end):
