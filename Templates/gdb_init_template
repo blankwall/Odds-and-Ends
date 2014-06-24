@@ -1,0 +1,8 @@
+define pid
+	python
+import sys
+sys.path.append("/home/blankwall/Desktop")
+from gdb_help import *
+pid("shitsco")
+end
+
