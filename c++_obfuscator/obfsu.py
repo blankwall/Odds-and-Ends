@@ -5,15 +5,17 @@ import os.path
 import sys
 
 #defines how long defines are need to add dictionary words instead
-random_length = 5
+random_length = 10
 #defines max number of spaces 
 space_length = 20
 #defines amount of times to dereference the define list
 deref = 20
+# Set this to false for neutered obfuscation
+hardcore = False
 
 var_length = 0
 
-syntax = [";", '"',")", "(", " ", ".", "{", "}", "<", ">", ":", "[", "*", "&", "+", ","]
+syntax = [";", '"',")", "(", " ", ".", "{", "}", "<", ">", ":", "[", "]", "*", "&", "+", ","]
 
 #Add types here as needed
 types = ["int", "class","public", "protected","bool", "static", "void", "const", "unsigned", "<<", "cout", "endl", "return", "while", "if", "for", "else", "length", "c_str","reinterpret_cast"]
@@ -32,14 +34,17 @@ class file_:
 
 #Change to a dicitionary list rather then ranom characters to make visual analysis harder
 def ran_char():
-	#x = randint(0x41, 0x5a);
-	return ""#chr(x)
+	x = randint(0x41, 0x5a);
+	return chr(x)
 
 def id_generator(size):
 	global var_length
 	var_length += 1
-	#chars = string.ascii_uppercase + string.digits
-	return "_" * var_length #ran_char() + ''.join(random.choice(chars) for _ in range(size-1))
+	chars = string.ascii_uppercase + string.digits
+	if hardcore:
+		return "_" * var_length #ran_char() + ''.join(random.choice(chars) for _ in range(size-1))
+	else:
+		return ran_char().lower() + ''.join(random.choice(chars) for _ in range(size-1)).lower()
 
 
 #convert stander quotes string to hex representation
@@ -86,6 +91,7 @@ def replace_string(i):
 	return "".join(i)
 
 #Safe replace ensure your not replacing things in the middle of words 
+# TODO add code to make this run mutliple times for the same line
 def safe_replace(line, replace,x, function):
 	word = line.find(replace)
 	front = back = ""
@@ -95,6 +101,8 @@ def safe_replace(line, replace,x, function):
 	if (word +len(replace)) < len(line):
 		back = line[word+len(replace)]
 
+	if replace == "i":
+		print front, back
 	if front in syntax or front == " " or front == "":
 		if back in syntax or back == " " or back == "":
 			if function == "func":
@@ -170,7 +178,10 @@ def parse_code(code, d,x):
 	skip = ["#include", "using"]
 
 	for i in range(0, len(code)):
+		#if hardcore:
 		i = code[i].strip()
+		#else:
+		#	i = code[i]
 
 		#comment skipping
 		if i[0:2] == "//":
@@ -195,7 +206,7 @@ def parse_code(code, d,x):
 		else:
 			value = 1
 
-		if value == 1 and defined == 0:
+		if value == 1 and defined == 0 and hardcore:
 			i += "\n"
 			final += i
 			final += defines(x)
@@ -222,13 +233,17 @@ def parse_code(code, d,x):
 			if function in i:
 				i = safe_replace(i, function, x, "func")
 
-		for type_ in x.types:
-			if type_ in i:
-				i = safe_replace(i, type_, x, "type")
+		if hardcore:
+			for type_ in x.types:
+				if type_ in i:
+					i = safe_replace(i, type_, x, "type")
 
-		i = change_space(i)
-		final += i
-		final += "\n"
+			i = change_space(i)
+			final += i
+			final += "\n"
+		else:
+			final += "\n"
+			final += i
 
 	d.write(final)
 
