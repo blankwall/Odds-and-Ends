@@ -1,0 +1,22 @@
+*****
+
+Change random values to dictionary words
+
+*****
+
+Add more stuff from paper
+
+*****
+
+Add safe number handling to mess up numbers
+
+
+******
+
+fix header files that are quoted ie "base64.h" becomes "base64_.h"
+
+******
+ 
+Add calls and things to the deadcode that does nothing
+
+
