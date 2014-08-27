@@ -16,7 +16,7 @@ hardcore = False
 var_length = 0
 
 syntax = [";", '"',")", "(", " ", ".", "{", "}", "<", ">", ":", "[", "]", "*", "&", "+", ","]
-
+used = []
 #Add types here as needed
 types = ["int", "class","public", "protected","bool", "static", "void", "const", "unsigned", "<<", "cout", "endl", "return", "while", "if", "for", "else", "length", "c_str","reinterpret_cast"]
 
@@ -35,6 +35,9 @@ class file_:
 #Change to a dicitionary list rather then ranom characters to make visual analysis harder
 def ran_char():
 	x = randint(0x41, 0x5a);
+	if x in used:
+		ran_char()
+	used.append(x)
 	return chr(x)
 
 def id_generator(size):
@@ -44,7 +47,8 @@ def id_generator(size):
 	if hardcore:
 		return "_" * var_length #ran_char() + ''.join(random.choice(chars) for _ in range(size-1))
 	else:
-		return ran_char().lower() + ''.join(random.choice(chars) for _ in range(size-1)).lower()
+
+		return ran_char().lower() #+ ''.join(random.choice(chars) for _ in range(size-1)).lower()
 
 
 #convert stander quotes string to hex representation
