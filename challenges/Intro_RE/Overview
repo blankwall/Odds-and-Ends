@@ -1,0 +1,15 @@
+What are the registers?
+What are the basic instruction set?
+How is a stack set up?
+What are the different file segments?
+How are functions called?
+What is an activation record?
+What is ebp used for and why is it used rather than esp?
+Local Variables vs passed in variables?
+Fast Math division vs multiplication?
+XMM registers?
+
+Install yasm
+Lets write some code maybe some basic libc functionality
+
+Basic data structures

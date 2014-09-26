@@ -1,0 +1,18 @@
+push
+pop
+[ ]
+mov
+lea
+add
+sub
+div
+mul
+idiv
+imul
+jcc ja jg jb jl jge etc... signed vs unsigned
+test
+xor
+and
+cmp
+movzx vs movsx unsigned vs signed
+what does a call do? a return?
