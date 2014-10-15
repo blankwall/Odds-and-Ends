@@ -1,0 +1,13 @@
+START HERE:
+	http://codearcana.com/posts/2013/05/21/a-brief-introduction-to-x86-calling-conventions.html
+
+	What is the stack?
+	How are functions called?
+	Where do arguments to a function go?
+	Where do local variables go?
+
+Solve the binary challenges available on my github
+
+Walk through at a minimum the first stack level with them
+
+All the challenges are labeled with a difficulty level strongly encourage solving the two level 1's and the one level 2 first. They are simple!
